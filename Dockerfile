@@ -1,4 +1,6 @@
-FROM python:2.7
+FROM centos:7
+
+CMD yum install pip
 
 CMD pip install websocket_client==0.32
 
