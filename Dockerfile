@@ -1,8 +1,9 @@
 FROM centos:7
 
-CMD yum install pip
+RUN yum -y install epel-release && yum -y update && yum clean all
+RUN yum -y install python-pip && yum clean all
 
-CMD pip install websocket_client==0.32
+RUN pip install websocket_client==0.32
 
 COPY ./wssh.py /usr/bin/wssh
-CMD chmod +x /usr/bin/wssh
+RUN chmod +x /usr/bin/wssh
